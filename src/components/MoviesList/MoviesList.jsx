@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { IMG_URL } from 'Servis/Api';
+import PropTypes from 'prop-types';
+import { MoviesListStyled, MovieItemStyled } from './MovieList.styled';
 
 const MoviesList = ({ filmList }) => {
   const location = useLocation();
   return (
-    <ul>
+    <MoviesListStyled>
       {filmList.map(({ name, title, id, poster_path }) => (
-        <li key={id}>
-          <Link to={`/movies/${id}`} state={{ from: location }}>
-            <img
+        <MovieItemStyled key={id}>
+          <Link className='linkItem' to={`/movies/${id}`} state={{ from: location }}>
+            <img className='img'
               src={
                 poster_path
                   ? `${IMG_URL}/${poster_path}`
@@ -19,11 +21,15 @@ const MoviesList = ({ filmList }) => {
               width="200"
               height="200"
             />
-            <p>{title ? title : name}</p>
+            <p className='text'>{title ? title : name}</p>
           </Link>
-        </li>
+        </MovieItemStyled>
       ))}
-    </ul>
+    </MoviesListStyled>
   );
 };
 export default MoviesList;
+
+MoviesList.propTypes = {
+  filmList : PropTypes.array,
+}

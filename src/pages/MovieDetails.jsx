@@ -5,10 +5,9 @@ import { toast } from 'react-toastify';
 import { Link, useLocation } from 'react-router-dom';
 import MovieInfoItem from 'components/MovieInfoItem/MovieInfoItem';
 
-
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const [movie, setMovie] = useState();
+  const [movie, setMovie] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -31,14 +30,17 @@ const MovieDetails = () => {
     getMovieDetails();
   }, [movieId]);
 
+  if (!movie) {
+    return null;
+  }
   return (
     <main>
       <Link to={location?.state?.from || '/'}>GO BACK</Link>
-      {movie && <MovieInfoItem movie={movie} />}
+      <MovieInfoItem movie={movie} />
       <div>
-        {movie && <h3>Additional infopmation</h3>}
-        {movie && <Link to="cast">Cast</Link>}
-        {movie && <Link to="reviews">Reviews</Link>}
+        <h3>Additional infopmation</h3>
+        <Link to="cast" >Cast</Link>
+        <Link to="reviews" >Reviews</Link>
       </div>
       <Outlet />
     </main>

@@ -65,11 +65,13 @@ const Movies = () => {
 
   return (
     <main >
+      <div className="container">
       <SearchBar onSubmitSearchBar={handleSubmitSearchBar} />
-      { movies.length >0 && <MoviesList filmList={movies} />}
+      { movies.length > 0 && <MoviesList filmList={movies} />}
       { movies.length > 0 && !invisible && (
         <BtnLoadMore type="button" text="Load More" onLoading={onLoadingMore} />
-      )}
+        )}
+        </div>
     </main>
   );
 };

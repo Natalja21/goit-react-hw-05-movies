@@ -25,10 +25,13 @@ const Reviews = () => {
     };
     getActorsMovie();
   }, [movieId]);
+  if (!reviews) {
+    return null;
+  }
 
   return (
     <div>
-      {reviews && reviews.length ? (
+      {reviews.length > 0 ? (
         reviews.map(item => <ReviewsItem key={item.id} item={item} />)
       ) : (
         <p>We don't have any reviews for this movie.</p>

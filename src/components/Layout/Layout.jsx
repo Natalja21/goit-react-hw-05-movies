@@ -1,16 +1,24 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
+import {Header, NavItem} from './Layout.styled.js'
 
 const Layout = () => {
+ 
   return (
-    
-      <header>
+    <>
+    <Header>
+      <div className="container">
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="movies">Movies</Link>
+          <NavItem to="/" >Home</NavItem>
+          <NavItem to="/movies" >Movies</NavItem>
         </nav>
-         <Outlet/>
-      </header>
-    
+        </div>
+        </Header>
+       <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
+      
+    </>
   );
 };
 export default Layout;

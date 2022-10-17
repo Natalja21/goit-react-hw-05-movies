@@ -1,6 +1,7 @@
 import { getPopularMovies } from 'Servis/Api';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { Title } from './Home.styled';
 
 import MoviesList from 'components/MoviesList/MoviesList';
 
@@ -28,7 +29,10 @@ const Home = () => {
 
   return (
     <main>
-      <MoviesList filmList={popularMoviesList} />
+      <section  className="container">
+      <Title>Trending today</Title>
+        <MoviesList filmList={popularMoviesList} />
+        </section>
     </main>
   );
 };

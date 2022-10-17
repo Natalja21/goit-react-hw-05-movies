@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 const ReviewsItem = ({ item }) => {
   const {
     id,
@@ -12,3 +13,7 @@ const ReviewsItem = ({ item }) => {
   );
 };
 export default ReviewsItem;
+
+ReviewsItem.prototype = {
+  item: PropTypes.object,
+};

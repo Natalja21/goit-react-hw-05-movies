@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { SearchForm } from './SearchBar.styled';
 
 const SearchBar = (props) => {
  const [query, setQuery] = useState('');
@@ -22,10 +23,9 @@ const SearchBar = (props) => {
     setQuery('');
   };
      return (
-    <header >
-      <form onSubmit={handelSubmit} >
-        <input
-        
+    <div>
+      <SearchForm onSubmit={handelSubmit} >
+        <input 
           name="query"
           type="text"
           autoComplete="off"
@@ -37,8 +37,8 @@ const SearchBar = (props) => {
         <button type="submit" >
           <span>Search</span>
         </button>
-      </form>
-    </header>
+      </SearchForm>
+    </div>
   );
 }
 export default SearchBar

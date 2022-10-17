@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getCastMovies } from 'Servis/Api';
 import { toast } from 'react-toastify';
 import CastItem from './CastItem';
+import PropTypes from 'prop-types';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -26,10 +27,13 @@ const Cast = () => {
     };
     getActorsMovie();
   }, [movieId]);
+  if (!cast) {
+    return null;
+  }
 
   return (
     <div>
-      {cast && cast.length ? (
+      {cast.length > 0 ? (
         <ul>
           {cast.map(item => (
             <CastItem item={item} key={item.id} />
@@ -43,3 +47,7 @@ const Cast = () => {
 };
 
 export default Cast;
+
+Cast.prototype = {
+  cast: PropTypes.array.isRequired,
+};

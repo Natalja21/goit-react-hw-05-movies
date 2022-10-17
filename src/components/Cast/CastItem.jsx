@@ -1,4 +1,5 @@
 import { IMG_URL } from 'Servis/Api';
+import PropTypes from 'prop-types';
 const CastItem = ({ item }) => {
   const { id, profile_path, name, character } = item;
   return (
@@ -20,3 +21,7 @@ const CastItem = ({ item }) => {
 };
 
 export default CastItem;
+
+CastItem.prototype = {
+  item: PropTypes.object,
+};

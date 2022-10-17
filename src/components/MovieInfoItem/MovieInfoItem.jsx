@@ -1,4 +1,5 @@
 import { IMG_URL } from 'Servis/Api';
+import PropTypes from 'prop-types';
 const MovieInfoItem = ({ movie }) => {
   const genres = movie.genres.map(({ name }) => name.toLowerCase()).join(', ');
 
@@ -25,3 +26,7 @@ const MovieInfoItem = ({ movie }) => {
 };
 
 export default MovieInfoItem;
+
+MovieInfoItem.prototype = {
+  movie: PropTypes.object,
+};
