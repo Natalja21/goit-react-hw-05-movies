@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import { getDetailsMovies } from 'Servis/Api';
 import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import MovieInfoItem from 'components/MovieInfoItem/MovieInfoItem';
+
 
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState();
+  const location = useLocation();
 
   useEffect(() => {
     const getMovieDetails = async () => {
@@ -31,13 +33,13 @@ const MovieDetails = () => {
 
   return (
     <main>
+      <Link to={location?.state?.from || '/'}>GO BACK</Link>
       {movie && <MovieInfoItem movie={movie} />}
       <div>
         {movie && <h3>Additional infopmation</h3>}
         {movie && <Link to="cast">Cast</Link>}
         {movie && <Link to="reviews">Reviews</Link>}
       </div>
-
       <Outlet />
     </main>
   );

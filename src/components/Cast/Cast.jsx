@@ -28,15 +28,17 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <>
-      {cast && cast.length && (
+    <div>
+      {cast && cast.length ? (
         <ul>
           {cast.map(item => (
             <CastItem item={item} key={item.id} />
           ))}
         </ul>
+      ) : (
+        <p>We don't have information of cast</p>
       )}
-    </>
+    </div>
   );
 };
 

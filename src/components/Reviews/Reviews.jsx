@@ -28,9 +28,11 @@ const Reviews = () => {
 
   return (
     <div>
-      {reviews &&
-        reviews.length &&
-        reviews.map(item => <ReviewsItem key={item.id} item={item} />)}
+      {reviews && reviews.length ? (
+        reviews.map(item => <ReviewsItem key={item.id} item={item} />)
+      ) : (
+        <p>We don't have any reviews for this movie.</p>
+      )}
     </div>
   );
 };
