@@ -7,7 +7,7 @@ flex-wrap: wrap;
 `;
 export const MovieItemStyled = styled.li`
   flex-basis: calc(100% / 5 - 30px);
-  background: #fff ;
+  background: transparent ;
   box-shadow: 0 6px 18px rgb(0 0 0 / 10%);
   margin-right: 30px;
   margin-bottom: 30px;
