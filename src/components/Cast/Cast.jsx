@@ -4,6 +4,7 @@ import { getCastMovies } from 'Servis/Api';
 import { toast } from 'react-toastify';
 import CastItem from './CastItem';
 import PropTypes from 'prop-types';
+import { CastList } from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -32,17 +33,17 @@ const Cast = () => {
   }
 
   return (
-    <div>
+    <section className='section'>
       {cast.length > 0 ? (
-        <ul>
+        <CastList>
           {cast.map(item => (
             <CastItem item={item} key={item.id} />
           ))}
-        </ul>
+        </CastList>
       ) : (
         <p>We don't have information of cast</p>
       )}
-    </div>
+    </section>
   );
 };
 

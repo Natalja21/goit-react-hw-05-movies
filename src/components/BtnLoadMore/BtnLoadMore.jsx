@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-
+import {BtnBox, Btn } from './LoadMore.styled';
 const BtnLoadMore = ({ type, text, onLoading }) => (
-  <div>
-    <button type={type} onClick={() => onLoading()}>
+  <BtnBox>
+    <Btn type={type} onClick={() => onLoading()}>
       {text}
-    </button>
-  </div>
+    </Btn>
+  </BtnBox>
 );
 export default BtnLoadMore;
 

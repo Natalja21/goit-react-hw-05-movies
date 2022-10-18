@@ -1,19 +1,20 @@
 import PropTypes from 'prop-types';
-const ReviewsItem = ({ item }) => {
+import { ReviewsItem } from './Reviews.styled';
+const Review = ({ item }) => {
   const {
     id,
     author_details: { name },
     content,
   } = item;
   return (
-    <li key={id}>
-      <h3>Author: {name ? name : 'anonymus'}</h3>
-      <p style={{ backgroundColor: '#d5e6eb', padding: '10px' }}>{content}</p>
-    </li>
+    <ReviewsItem key={id}>
+      <h2>Author: <span>{name ? name : 'anonymus'}</span></h2>
+      <p >{content}</p>
+    </ReviewsItem>
   );
 };
-export default ReviewsItem;
+export default Review;
 
-ReviewsItem.prototype = {
+Review.prototype = {
   item: PropTypes.object,
 };

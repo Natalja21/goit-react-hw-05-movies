@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { IMG_URL } from 'Servis/Api';
 import PropTypes from 'prop-types';
 import { MoviesListStyled, MovieItemStyled } from './MovieList.styled';
+import img from '../../img/camera-2008489_640.png'
 
 const MoviesList = ({ filmList }) => {
   const location = useLocation();
@@ -15,11 +16,10 @@ const MoviesList = ({ filmList }) => {
               src={
                 poster_path
                   ? `${IMG_URL}/${poster_path}`
-                  : `https://assets.zoom.us/images/en-us/desktop/generic/video-not-working.PNG`
+                  : `${img}`
               }
               alt={title ? title : name}
-              width="200"
-              height="200"
+             
             />
             <p className='text'>{title ? title : name}</p>
           </Link>

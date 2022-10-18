@@ -8,5 +8,7 @@ export const Title = styled.h1`
   text-transform: uppercase;
   width: 696px;
   text-align: center;
-  margin: 30px auto;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right:auto;
 `;

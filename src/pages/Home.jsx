@@ -29,9 +29,11 @@ const Home = () => {
 
   return (
     <main>
-      <section  className="container">
+      <section className="section">
+        <div className="container">
       <Title>Trending today</Title>
-        <MoviesList filmList={popularMoviesList} />
+          <MoviesList filmList={popularMoviesList} />
+          </div>
         </section>
     </main>
   );

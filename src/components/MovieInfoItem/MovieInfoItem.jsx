@@ -1,27 +1,29 @@
 import { IMG_URL } from 'Servis/Api';
 import PropTypes from 'prop-types';
+import { MovieInfoItemContainer, Img, MovieInfoText } from './MovieInfoItem .styled';
+import img from '../../img/camera-2008489_640.png'
+
 const MovieInfoItem = ({ movie }) => {
   const genres = movie.genres.map(({ name }) => name.toLowerCase()).join(', ');
 
   return (
-    <div>
-      <img
-        src={
+    <MovieInfoItemContainer>
+      <Img  src={
           movie.poster_path
             ? `${IMG_URL}/${movie.poster_path}`
-            : `https://assets.zoom.us/images/en-us/desktop/generic/video-not-working.PNG`
+            : `${img}`
         }
-        alt=""
-        width="100"
-        height="200"
-      />
+        alt=""> 
+     </Img>
+      <MovieInfoText >
       <h2>{movie.original_title}</h2>
       <p>{`User score: ${(movie.vote_average * 10).toFixed(2)}%`}</p>
       <h3>Overview</h3>
       <p>{movie.overview}</p>
       <h3>Genres</h3>
-      <p>{genres}</p>
-    </div>
+        <p>{genres}</p>
+        </MovieInfoText>
+    </MovieInfoItemContainer>
   );
 };
 
