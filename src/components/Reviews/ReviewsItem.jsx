@@ -8,7 +8,7 @@ const Review = ({ item }) => {
   } = item;
   return (
     <ReviewsItem key={id}>
-      <h2>Author: <span>{name ? name : 'anonymus'}</span></h2>
+      <h3>Author: <span>{name ? name : 'anonymus'}</span></h3>
       <p >{content}</p>
     </ReviewsItem>
   );

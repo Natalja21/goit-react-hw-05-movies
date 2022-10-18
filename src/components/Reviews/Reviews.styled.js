@@ -5,11 +5,11 @@ export const ReviewsList = styled.ul`
 export const ReviewsItem = styled.li`
   margin: 10px;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 1, 16;
+  font-size: 13px;
+  line-height: 1,16;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  & > h2 {
+  & > h3 {
     color: orange;
     margin-bottom:10px;
     & > span {

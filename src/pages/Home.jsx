@@ -12,7 +12,7 @@ const Home = () => {
       try {
         const data = await getPopularMovies();
         setPopularMoviesList(data.results);
-        // console.log(data);
+        console.log(data);
       } catch (error) {
        const errorMessage = toast.warning(
           'Oops, something went wrong try again later!',

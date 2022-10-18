@@ -17,6 +17,7 @@ const MovieDetails = () => {
         const data = await getDetailsMovies(movieId);
 
         setMovie(data);
+        console.log(data)
       } catch (error) {
         const errorMessage = toast.warning(
           'Oops, something went wrong try again later!',
