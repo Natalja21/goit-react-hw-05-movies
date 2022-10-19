@@ -19,7 +19,6 @@ const SearchBar = (props) => {
       return;
     }
     props.onSubmitSearchBar(query);
-
     setQuery('');
   };
      return (

@@ -16,9 +16,9 @@ export const getPopularMovies = async () => {
   const { data } = await moviesApiClient.get('/trending/movie/day');
   return data;
 };
-export const getSerchMovies = async (query, page) => {
+export const getSerchMovies = async (query) => {
   const { data } = await moviesApiClient.get('/search/movie', {
-    params: { query, page },
+    params: { query},
   });
   return data;
 };

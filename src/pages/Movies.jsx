@@ -3,28 +3,20 @@ import MoviesList from 'components/MoviesList/MoviesList';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { getSerchMovies } from 'Servis/Api';
-import BtnLoadMore from 'components/BtnLoadMore/BtnLoadMore';
 import { useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-   const [searchParams, setSearchParams] = useSearchParams();
-  const [page, setPage] = useState(1);
-  const [invisible, setInvisible] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query');
 
   useEffect(() => {
-     const query = searchParams.get('query')
-    if (query === '') {
-      setInvisible(true);
+    if (!query) {
       return;
     }
     const fechSerchMovies = async () => {
-      setInvisible(true);
       try {
-        const { results, total_results, total_pages } = await getSerchMovies(
-         query,
-          page
-        );
+        const { results, total_results } = await getSerchMovies(query);
         if (total_results === 0) {
           toast.warning(
             `Sorry, there are no movies matching search query "${query}". Please try again.`,
@@ -35,12 +27,7 @@ const Movies = () => {
           );
           setMovies([]);
         }
-        setMovies(prev => [...prev,...results]);
-
-        if (page < total_pages) {
-         setInvisible(false);
-        }
-        
+        setMovies(results);
       } catch (error) {
         const errorMessage = toast.warning(
           'Oops, something went wrong try again later!',
@@ -53,25 +40,18 @@ const Movies = () => {
       }
     };
     fechSerchMovies();
-  }, [searchParams, page]);
+  }, [query]);
 
-  const handleSubmitSearchBar = query => {
-     setSearchParams({ query});
-      setMovies([]);
-  };
-  const onLoadingMore = () => {
-    setPage(prev => prev + 1);
+  const handleSubmitSearchBar = value => {
+    setSearchParams({ query: value });
   };
 
   return (
-    <main >
+    <main>
       <div className="container">
-      <SearchBar onSubmitSearchBar={handleSubmitSearchBar} />
-      { movies.length > 0 && <MoviesList filmList={movies} />}
-      { movies.length > 0 && !invisible && (
-        <BtnLoadMore type="button" text="Load More" onLoading={onLoadingMore} />
-        )}
-        </div>
+        <SearchBar onSubmitSearchBar={handleSubmitSearchBar} />
+        {movies.length > 0 && <MoviesList filmList={movies} />}
+      </div>
     </main>
   );
 };
