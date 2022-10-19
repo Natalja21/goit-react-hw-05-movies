@@ -1,5 +1,5 @@
 import img from '../img/tree-736877_640.jpg';
-import { NotFoundTitle,NotFoundImg, NotFoundText } from './NotFound.styled';
+import { NotFoundTitle, NotFoundImg, NotFoundText } from './NotFound.styled';
 const NotFound = () => {
   return (
     <main>

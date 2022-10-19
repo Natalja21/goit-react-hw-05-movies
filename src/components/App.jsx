@@ -13,22 +13,22 @@ import 'react-toastify/dist/ReactToastify.css';
 const Movies = lazy(() => import('../pages/Movies'));
 const Home = lazy(() => import('../pages/Home'));
 const MovieDetails = lazy(() => import('../pages/MovieDetails'));
-const Cast = lazy(() => import('./Cast/Cast'))
-const Reviews = lazy(() => import('./Reviews/Reviews'))
-const NotFound = lazy(() => import('../pages/NotFound'))
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 export const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route index element={<Home/>} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
-          <Route path="*" element={<NotFound/>} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
       <ToastContainer position="top-right" autoClose={3000} />

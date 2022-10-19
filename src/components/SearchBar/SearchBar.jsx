@@ -2,29 +2,28 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { SearchForm } from './SearchBar.styled';
 
-const SearchBar = (props) => {
- const [query, setQuery] = useState('');
+const SearchBar = props => {
+  const [query, setQuery] = useState('');
 
   const handelQueryChange = e => {
     setQuery(e.currentTarget.value.toLowerCase());
   };
   const handelSubmit = e => {
     e.preventDefault();
-    if (query.trim() === '' ) {
+    if (query.trim() === '') {
       toast.warning('Please, enter query !', {
         theme: 'colored',
-          closeOnClick: true,
-        
+        closeOnClick: true,
       });
       return;
     }
     props.onSubmitSearchBar(query);
     setQuery('');
   };
-     return (
+  return (
     <div>
-      <SearchForm onSubmit={handelSubmit} >
-        <input 
+      <SearchForm onSubmit={handelSubmit}>
+        <input
           name="query"
           type="text"
           autoComplete="off"
@@ -33,11 +32,11 @@ const SearchBar = (props) => {
           placeholder="Search movies"
           onChange={handelQueryChange}
         />
-        <button type="submit" >
+        <button type="submit">
           <span>Search</span>
         </button>
       </SearchForm>
     </div>
   );
-}
-export default SearchBar
+};
+export default SearchBar;

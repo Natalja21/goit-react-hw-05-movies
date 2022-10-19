@@ -1,31 +1,31 @@
 import styled from 'styled-components';
 
 export const MoviesListStyled = styled.ul`
-display: flex;
-flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
   margin-right: -30px;
 `;
 export const MovieItemStyled = styled.li`
   flex-basis: calc(100% / 5 - 30px);
-  background: transparent ;
+  background: transparent;
   box-shadow: 0 6px 18px rgb(0 0 0 / 10%);
   margin-right: 30px;
   margin-bottom: 30px;
   border-radius: 5px;
   list-style: none;
   :hover {
-      transform: scale(1.02);
-        cursor: pointer;
-        box-shadow: 0px 0px 59px -17px rgba(255, 107, 1, 1), inset 0px 0px 24px -9px rgba(84, 84, 84, 0.5);
-      color: brown;
-    }
-  
+    transform: scale(1.02);
+    cursor: pointer;
+    box-shadow: 0px 0px 59px -17px rgba(255, 107, 1, 1),
+      inset 0px 0px 24px -9px rgba(84, 84, 84, 0.5);
+    color: brown;
+  }
 
   .linkItem {
     width: 100%;
     display: inline-block;
     text-decoration: none;
-    color: black;  
+    color: black;
   }
 
   .img {

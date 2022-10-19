@@ -33,7 +33,7 @@ const Cast = () => {
   }
 
   return (
-    <section className='section'>
+    <section className="section">
       {cast.length > 0 ? (
         <CastList>
           {cast.map(item => (

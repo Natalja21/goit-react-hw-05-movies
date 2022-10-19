@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-import { Header, StyledNavLink} from './Layout.styled.js';
+import { Header, StyledNavLink } from './Layout.styled.js';
 import Loader from 'components/Loader/Loader.jsx';
 
 const Layout = () => {
@@ -9,7 +9,9 @@ const Layout = () => {
       <Header>
         <div className="container">
           <nav>
-            <StyledNavLink to="/" end>Home</StyledNavLink>
+            <StyledNavLink to="/" end>
+              Home
+            </StyledNavLink>
             <StyledNavLink to="/movies">Movies</StyledNavLink>
           </nav>
         </div>

@@ -10,5 +10,5 @@ export const Title = styled.h1`
   text-align: center;
   margin-bottom: 30px;
   margin-left: auto;
-  margin-right:auto;
+  margin-right: auto;
 `;

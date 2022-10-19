@@ -28,7 +28,7 @@ export const StyledNavLink = styled(NavLink)`
 
   &.active {
     color: orange;
-  };
+  }
 
   :hover:not(.active) {
     text-decoration: underline;

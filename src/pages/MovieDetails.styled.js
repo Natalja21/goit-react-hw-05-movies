@@ -9,23 +9,23 @@ export const GoBackLink = styled(Link)`
   font-size: 16px;
   line-height: 1.87;
   align-items: center;
- 
+
   :hover {
     color: black;
     text-decoration: underline;
   }
 `;
 export const AddInfoContainer = styled.div`
-margin-top:20px;
-& > h2 {
-    text-align: center ;
-    color:orange;
-}
-`
+  margin-top: 20px;
+  & > h2 {
+    text-align: center;
+    color: orange;
+  }
+`;
 export const AddInfoLink = styled(NavLink)`
-margin-right: 20px;
-margin-top:20px;
- padding: 10px 12px;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding: 10px 12px;
   font-weight: 900;
   font-size: 16px;
   line-height: 1.87;
@@ -36,11 +36,11 @@ margin-top:20px;
   font-size: 16px;
   line-height: 1.87;
   align-items: center;
-:hover:not(.active) {
+  :hover:not(.active) {
     color: black;
     text-decoration: underline;
   }
   &.active {
-    color:orange;
+    color: orange;
   }
-` 
+`;

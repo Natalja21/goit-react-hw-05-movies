@@ -31,14 +31,14 @@ const Reviews = () => {
   }
 
   return (
-    <section className='section'>
+    <section className="section">
       <ReviewsList>
-      {reviews.length > 0 ? (
-        reviews.map(item => <Review key={item.id} item={item} />)
-      ) : (
-        <p>We don't have any reviews for this movie.</p>
+        {reviews.length > 0 ? (
+          reviews.map(item => <Review key={item.id} item={item} />)
+        ) : (
+          <p>We don't have any reviews for this movie.</p>
         )}
-        </ReviewsList>
+      </ReviewsList>
     </section>
   );
 };

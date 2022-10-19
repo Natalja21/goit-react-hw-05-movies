@@ -14,7 +14,7 @@ const Home = () => {
         setPopularMoviesList(data.results);
         console.log(data);
       } catch (error) {
-       const errorMessage = toast.warning(
+        const errorMessage = toast.warning(
           'Oops, something went wrong try again later!',
           {
             theme: 'colored',
@@ -31,10 +31,10 @@ const Home = () => {
     <main>
       <section className="section">
         <div className="container">
-      <Title>Trending today</Title>
+          <Title>Trending today</Title>
           <MoviesList filmList={popularMoviesList} />
-          </div>
-        </section>
+        </div>
+      </section>
     </main>
   );
 };
