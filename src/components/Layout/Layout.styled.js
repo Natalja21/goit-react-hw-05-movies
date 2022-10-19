@@ -10,12 +10,13 @@ export const Header = styled.header`
   background-image: url(${background});
   background-repeat: no-repeat;
   background-position: top 37% center;
+
   & > nav {
     margin: 75px 0;
   }
 `;
 
-export const NavItem = styled(NavLink)`
+export const StyledNavLink = styled(NavLink)`
   padding: 10px;
   color: bisque;
   text-decoration: none;
@@ -24,9 +25,11 @@ export const NavItem = styled(NavLink)`
   line-height: 1.87;
   align-items: center;
   letter-spacing: 0.06em;
+
   &.active {
     color: orange;
-  }
+  };
+
   :hover:not(.active) {
     text-decoration: underline;
   }
