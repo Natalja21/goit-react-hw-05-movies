@@ -10,7 +10,7 @@ const SearchBar = (props) => {
   };
   const handelSubmit = e => {
     e.preventDefault();
-    if (query.trim() === '') {
+    if (query.trim() === '' ) {
       toast.warning('Please, enter query !', {
         theme: 'colored',
           closeOnClick: true,

@@ -4,14 +4,16 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { getSerchMovies } from 'Servis/Api';
 import BtnLoadMore from 'components/BtnLoadMore/BtnLoadMore';
+import { useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState('');
+   const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState(1);
   const [invisible, setInvisible] = useState(false);
 
   useEffect(() => {
+     const query = searchParams.get('query')
     if (query === '') {
       setInvisible(true);
       return;
@@ -20,7 +22,7 @@ const Movies = () => {
       setInvisible(true);
       try {
         const { results, total_results, total_pages } = await getSerchMovies(
-          query,
+         query,
           page
         );
         if (total_results === 0) {
@@ -51,13 +53,11 @@ const Movies = () => {
       }
     };
     fechSerchMovies();
-  }, [query, page]);
+  }, [searchParams, page]);
 
-  const handleSubmitSearchBar = newQuery => {
-    if (query !== newQuery) {
-      setQuery(prev => newQuery);
+  const handleSubmitSearchBar = query => {
+     setSearchParams({ query});
       setMovies([]);
-    }
   };
   const onLoadingMore = () => {
     setPage(prev => prev + 1);
